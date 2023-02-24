@@ -45,6 +45,7 @@ def check_plagiarism():
             plagiarism_results.add(score)
     return plagiarism_results
 
+
 plagiarism_results = check_plagiarism()
 
 for data in plagiarism_results:
