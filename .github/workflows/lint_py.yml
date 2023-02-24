@@ -26,12 +26,12 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Set up CodeQL environment
-        uses: github/codeql-action/init@v1
+        uses: github/codeql-action/init@v2
         with:
           languages: python
 
       - name: Build CodeQL database
-        uses: github/codeql-action/analyze@v1
+        uses: github/codeql-action/analyze@v2
         with:
           database: codeql-db
           language: python
@@ -40,7 +40,7 @@ jobs:
           # queries: query1.ql, query2.ql
 
       - name: Upload CodeQL results
-        uses: github/codeql-action/upload-sarif@v1
+        uses: github/codeql-action/upload-sarif@v2
         with:
           # Path to CodeQL analysis results in SARIF format
           sarif_file: codeql-results.sarif
