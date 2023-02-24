@@ -29,10 +29,12 @@ jobs:
       # only required for workflows in private repositories
       actions: read
       contents: read
-      
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+        
+      - run: python -m pip install --upgrade pip
 
       - name: Set up CodeQL environment
         uses: github/codeql-action/init@v2
