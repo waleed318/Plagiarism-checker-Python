@@ -14,7 +14,7 @@ student_notes = [open(_file, encoding='utf-8').read() for _file in student_files
 
 
 def preprocess(text):
-    stop_words = set(spacy.lang.en.stop_words.STOP_WORDS)
+    set(spacy.lang.en.stop_words.STOP_WORDS)
     return ' '.join([token.text.lower() for token in nlp(text) if not token.is_stop])
 
 
@@ -45,8 +45,10 @@ def check_plagiarism():
             plagiarism_results.add(score)
     return plagiarism_results
 
-Similarity=check_plagiarism()
-for data in Similarity:
+
+plagiarism_results = check_plagiarism()
+
+for data in plagiarism_results:
     if data[2] > 0.8:
         with open(data[0], 'r', encoding='utf-8') as file_a:
             text_a = file_a.read()
@@ -63,5 +65,5 @@ for data in Similarity:
 
 
 print("======== Documents Similarity ========")
-for data in Similarity:
+for data in plagiarism_results:
     print(data)
