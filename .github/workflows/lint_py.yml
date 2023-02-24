@@ -61,4 +61,5 @@ jobs:
         uses: github/codeql-action/upload-sarif@v2
         with:
           # Path to CodeQL analysis results in SARIF format
-          sarif_file: codeql-results.sarif
+          sarif_file: eslint-results.sarif
+          wait-for-processing: true
