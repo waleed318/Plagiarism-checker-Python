@@ -45,8 +45,9 @@ def check_plagiarism():
             plagiarism_results.add(score)
     return plagiarism_results
 
-Similarity = check_plagiarism()
-for data in Similarity:
+plagiarism_results = check_plagiarism()
+
+for data in plagiarism_results:
     if data[2] > 0.8:
         with open(data[0], 'r', encoding='utf-8') as file_a:
             text_a = file_a.read()
@@ -63,5 +64,5 @@ for data in Similarity:
 
 
 print("======== Documents Similarity ========")
-for data in Similarity:
+for data in plagiarism_results:
     print(data)
